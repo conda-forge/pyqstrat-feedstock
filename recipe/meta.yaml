@@ -1,5 +1,5 @@
 {% set name = "pyqstrat" %}
-{% set version = "0.3.17" %}
+{% set version = "0.3.20" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
-  sha256: 66485ca8056fabb9316064f88709f1b88ad1d1fcab1cf19051b3350d665eb29b
+  sha256: c3d7aa7bd9389c6648e3a658786f474637aa022e0a6bbeaf3f96012144836a86
 
 build:
   skip: true  # [py<37]
@@ -24,7 +24,7 @@ requirements:
     - numpy
     - pip
     - libzip
-    
+
   run:
     - python
     - pandas >=0.22
@@ -40,7 +40,7 @@ requirements:
     - types-python-dateutil >=0.1
     - {{ pin_compatible('numpy') }}
     - libzip
-    
+
 test:
   imports:
     - pyqstrat
