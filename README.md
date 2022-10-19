@@ -260,5 +260,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@sal](https://github.com/sal/)
+* [@abbass2](https://github.com/abbass2/)
 
