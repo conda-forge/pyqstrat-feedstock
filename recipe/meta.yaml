@@ -1,5 +1,5 @@
 {% set name = "pyqstrat" %}
-{% set version = "0.3.21" %}
+{% set version = "0.3.22" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
-  sha256: 371c5ec2ab8edc74c1afe66b9c5ad3b12b6c0c8dc1482890cff4004fde987a46
+  sha256: 47193eb19f204fe3292306e96a8fc004c936686e1c711b40f6ebc701e1ccf79c
 
 build:
-  skip: true  # [py<37]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
