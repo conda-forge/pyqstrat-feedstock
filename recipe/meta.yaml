@@ -45,6 +45,7 @@ requirements:
     - types-python-dateutil >=0.1
     - {{ pin_compatible('numpy') }}
     - libzip
+    - cython
 
 test:
   imports:
