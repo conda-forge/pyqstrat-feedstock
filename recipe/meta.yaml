@@ -30,6 +30,8 @@ requirements:
     - pip
     - libzip
     - cython
+    - pyyaml
+    - types-python-dateutil
 
   run:
     - python
@@ -44,9 +46,11 @@ requirements:
     - libzip
     - cython
     - python-dateutil
+    - types-python-dateutil
     - traitlets
     - pandas_market_calendars
     - pybind11
+    - pyyaml
 
 
 
