@@ -44,6 +44,7 @@ requirements:
     - python-dateutil
     - traitlets
     - pandas_market_calendars
+    - pybind11
 
 
 
