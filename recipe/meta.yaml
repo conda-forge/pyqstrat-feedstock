@@ -18,14 +18,15 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pybind11') }}
     - python
-    - numpy
-    - pandas >=0.22
-    - statsmodels >=0.11
-    - ipython >=6.5.0
-    - sortedcontainers >=2.0.5
-    - h5py >=2.9
-    - ipywidgets >=7.5
+    - pandas
+    - statsmodels
+    - ipython
+    - sortedcontainers
+    - h5py
+    - ipywidgets
     - plotly >=4.10
     - libzip
     - cython
@@ -33,7 +34,6 @@ requirements:
     - types-python-dateutil
     - traitlets
     - pandas_market_calendars
-    - pybind11
     - pyyaml
 
 test:
