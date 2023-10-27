@@ -7,6 +7,7 @@ package:
   name: {{ name|lower }}
   version: {{ version }}
 
+
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
   sha256: c938b09ca0138825021f732888cfa5492c0649278bc23b0bb91f7d6d6140159f
