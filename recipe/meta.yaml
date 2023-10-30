@@ -12,13 +12,54 @@ source:
 
 build:
   skip: true  # [py<310]
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pybind11') }}
+    - python
+    - pandas
+    - statsmodels
+    - ipython
+    - sortedcontainers
+    - h5py
+    - ipywidgets
+    - plotly >=4.10
+    - libzip
+    - cython
+    - python-dateutil
+    - types-python-dateutil
+    - traitlets
+    - pandas_market_calendars
+    - pyyaml
+
+  host:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pybind11') }}
+    - python
+    - pandas
+    - statsmodels
+    - ipython
+    - sortedcontainers
+    - h5py
+    - ipywidgets
+    - plotly >=4.10
+    - libzip
+    - cython
+    - python-dateutil
+    - types-python-dateutil
+    - traitlets
+    - pandas_market_calendars
+    - pyyaml
+
+
+run:
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pybind11') }}
     - python
