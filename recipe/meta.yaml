@@ -19,19 +19,19 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python
-    - pybind11
+    - pybind11 >=2.11
     - numpy >=1.24
     - pip
-    - cython
+    - cython >=0.24
     
   host:
     - python
     - pip
     - libzip
-    - cython
+    - cython >=0.24
     - numpy >=1.24
     - pip
-    - pybind11
+    - pybind11 >=2.11
 
   run:
     - python
