@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
-  url: sha256: 17032aac373649a9fe7ac2364227c761d658d2d188ea48695425891486790514
+  sha256: 17032aac373649a9fe7ac2364227c761d658d2d188ea48695425891486790514
 
 build:
   skip: true  # [py<39]
@@ -44,71 +44,6 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - libzip
     - cython
-    - types-python-dateutil
-    - traitlets
-    - pandas_market_calendars
-    - pyyaml
-
-test:
-  imports:
-    - pyqstrat
-  commands:
-    - pip check
-  requires:
-    - pip
-
-about:
-  home: http://github.com/abbass2/pyqstrat/
-  summary: fast / extensible library for backtesting quantitative strategies
-  license: BSD-3-Clause
-  license_file: LICENSE.txt
-
-extra:
-  recipe-maintainers:
-    - abbass2
-
-    - python-dateutil
-    - types-python-dateutil
-    - traitlets
-    - pandas_market_calendars
-    - pyyaml
-
-  host:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pybind11') }}
-    - python
-    - pandas
-    - statsmodels
-    - ipython
-    - sortedcontainers
-    - h5py
-    - ipywidgets
-    - plotly >=4.10
-    - libzip
-    - cython
-    - python-dateutil
-    - types-python-dateutil
-    - traitlets
-    - pandas_market_calendars
-    - pyyaml
-
-
-  run:
-    - python
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pybind11') }}
-    - pandas
-    - statsmodels
-    - ipython
-    - sortedcontainers
-    - h5py
-    - ipywidgets
-    - plotly >=4.10
-    - libzip
-    - cython
-    - python-dateutil
     - types-python-dateutil
     - traitlets
     - pandas_market_calendars
