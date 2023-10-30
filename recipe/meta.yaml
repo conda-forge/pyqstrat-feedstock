@@ -60,8 +60,6 @@ requirements:
 
 
 run:
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pybind11') }}
     - python
     - pandas
     - statsmodels
