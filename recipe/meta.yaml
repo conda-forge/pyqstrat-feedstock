@@ -27,7 +27,7 @@ requirements:
   host:
     - python
     - pybind11
-    - numpy < 1.21
+    - numpy <1.21
     - pip
     - libzip
     - cython
