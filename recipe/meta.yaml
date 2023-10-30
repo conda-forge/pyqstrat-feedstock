@@ -24,10 +24,9 @@ requirements:
     - numpy >=1.24                           # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - pip
-    - cython
     
   host:
-    - {{ PYTHON }}
+    - python
     - pip
     - libzip
     - cython
