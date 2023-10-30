@@ -27,7 +27,7 @@ requirements:
   host:
     - python
     - pybind11
-    - numpy
+    - numpy < 1.21
     - pip
     - libzip
     - cython
@@ -46,7 +46,7 @@ requirements:
     - traitlets
     - pandas_market_calendars
     - pyyaml
-    - numpy >=1.24
+    - {{ pin_compatible('numpy') }}
     - pybind11
     - cython
 
