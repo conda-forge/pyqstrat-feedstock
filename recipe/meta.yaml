@@ -12,7 +12,7 @@ source:
 build:
   number: 5
   skip: true  # [py<310]
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('cxx') }}
     - python
     - pybind11
-    - numpy 1.24
+    - numpy >=1.24
     - pip
     - cython
     
@@ -29,7 +29,7 @@ requirements:
     - pip
     - libzip
     - cython
-    - numpy 1.24
+    - numpy >=1.24
     - pip
     - pybind11
 
@@ -48,7 +48,7 @@ requirements:
     - traitlets
     - pandas_market_calendars
     - pyyaml
-    - numpy 1.24
+    - numpy >=1.24
 
 test:
   imports:
