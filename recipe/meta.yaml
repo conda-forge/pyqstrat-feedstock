@@ -18,20 +18,22 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - python
-    - pybind11 >=2.11
-    - numpy >=1.24
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy >=1.24                           # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform]
     - pip
-    - cython >=0.24
+    - cython
     
   host:
     - python
     - pip
     - libzip
-    - cython >=0.24
+    - cython
     - numpy >=1.24
     - pip
-    - pybind11 >=2.11
+    - pybind11
 
   run:
     - python
@@ -49,8 +51,8 @@ requirements:
     - pandas_market_calendars
     - pyyaml
     - numpy >=1.24
-    - pybind11 >=2.11
-    - cython >=0.24
+    - pybind11
+    - cython
 
 test:
   imports:
