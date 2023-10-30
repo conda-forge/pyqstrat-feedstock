@@ -1,36 +1,72 @@
 {% set name = "pyqstrat" %}
-{% set version = "1.0.2" %}
+{% set version = "0.3.24" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
-
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
-  sha256: 17032aac373649a9fe7ac2364227c761d658d2d188ea48695425891486790514
+  sha256: dcaeea285af65dfee9d804a5daf548bd202c2dd46a4a6bb2dfaaf9fa202cde73
 
 build:
-  skip: true  # [py<310]
-  number: 2
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pybind11') }}
+  host:
     - python
-    - pandas
-    - statsmodels
-    - ipython
-    - sortedcontainers
-    - h5py
-    - ipywidgets
-    - plotly >=4.10
+    - pybind11
+    - numpy
+    - pip
     - libzip
     - cython
+
+  run:
+    - python
+    - pandas >=0.22
+    - statsmodels >=0.11
+    - ipython >=6.5.0
+    - pybind11 >=2.2
+    - sortedcontainers >=2.0.5
+    - h5py >=2.9
+    - ipywidgets >=7.5
+    - plotly >=4.10
+    - types-python-dateutil >=0.1
+    - {{ pin_compatible('numpy') }}
+    - libzip
+    - cython
+    - types-python-dateutil
+    - traitlets
+    - pandas_market_calendars
+    - pyyaml
+
+test:
+  imports:
+    - pyqstrat
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: http://github.com/abbass2/pyqstrat/
+  summary: fast / extensible library for backtesting quantitative strategies
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - abbass2
+
     - python-dateutil
     - types-python-dateutil
     - traitlets
