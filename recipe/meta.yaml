@@ -49,6 +49,8 @@ requirements:
     - pandas_market_calendars
     - pyyaml
     - numpy >=1.24
+    - pybind11 >=2.11
+    - cython >=0.24
 
 test:
   imports:
