@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [py<310]
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -59,8 +59,10 @@ requirements:
     - pyyaml
 
 
-run:
+  run:
     - python
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pybind11') }}
     - pandas
     - statsmodels
     - ipython
