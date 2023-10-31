@@ -1,37 +1,49 @@
 {% set name = "pyqstrat" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
-
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
-  sha256: c938b09ca0138825021f732888cfa5492c0649278bc23b0bb91f7d6d6140159f
+  sha256: 17032aac373649a9fe7ac2364227c761d658d2d188ea48695425891486790514
 
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 6
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy >=1.26                           # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pybind11') }}
+  host:
     - python
-    - pandas
-    - statsmodels
-    - ipython
-    - sortedcontainers
-    - h5py
-    - ipywidgets
-    - plotly >=4.10
+    - pybind11
+    - numpy >=1.26
+    - pip
     - libzip
     - cython
-    - python-dateutil
+
+  run:
+    - python
+    - pandas >=0.22
+    - statsmodels >=0.11
+    - ipython >=6.5.0
+    - pybind11 >=2.2
+    - sortedcontainers >=2.0.5
+    - h5py >=2.9
+    - ipywidgets >=7.5
+    - plotly >=4.10
+    - types-python-dateutil >=0.1
+    - {{ pin_compatible('numpy') }}
+    - libzip
+    - cython
     - types-python-dateutil
     - traitlets
     - pandas_market_calendars
