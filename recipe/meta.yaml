@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyqstrat-{{ version }}.tar.gz
   sha256: 17032aac373649a9fe7ac2364227c761d658d2d188ea48695425891486790514
 
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 6
+  number: 7
 
 requirements:
   build:
@@ -21,6 +21,7 @@ requirements:
     - numpy >=1.26                           # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
