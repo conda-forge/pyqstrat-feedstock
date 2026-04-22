@@ -12,7 +12,7 @@ source:
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 6
+  number: 7
 
 requirements:
   build:
@@ -21,6 +21,7 @@ requirements:
     - numpy >=1.26                           # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -41,7 +42,6 @@ requirements:
     - ipywidgets >=7.5
     - plotly >=4.10
     - types-python-dateutil >=0.1
-    - {{ pin_compatible('numpy') }}
     - libzip
     - cython
     - types-python-dateutil
